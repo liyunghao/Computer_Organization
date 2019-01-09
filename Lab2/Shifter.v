@@ -15,13 +15,13 @@ module Shifter( result, leftRight, shamt, sftSrc  );
         for (i = 0; i < shamt; i = i + 1)
         begin
             a[30:0] = a[31:1];
-            // a[7] = sign;
+            a[31] = 0;
         end
       end else begin
           for (i = 0; i < shamt; i = i + 1)
           begin
-              a[31:1] = a[30:0];
-              a[0] = zero;
+            a[31:1] = a[30:0];
+            a[0] = zero;
           end
       end
       result = a;
