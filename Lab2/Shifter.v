@@ -7,7 +7,6 @@ module Shifter( result, leftRight, shamt, sftSrc  );
   input wire [31:0] sftSrc ;
   reg [31:0] a;
   wire zero = 1'b0;
-  //wire sign = sftSrc[31];
   integer i ;
   always @ ( leftRight or shamt or sftSrc ) begin
     a = sftSrc;

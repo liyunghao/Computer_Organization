@@ -12,18 +12,9 @@ module ALU( result, zero, overflow, aluSrc1, aluSrc2, invertA, invertB, operatio
   input wire invertB;
   input wire[1:0] operation;
   wire [32:0] cout;
-  wire set;
-  wire e = 1'b0;
   wire cin;
-  wire control;
-  wire [1:0]action;
-  wire sign1;
-  wire sign2;
-  assign control = {invertA, invertB, operation};
-  assign sign1 = aluSrc1[31] ^ invertA;
-  assign sign2 = aluSrc2[31] ^ invertB;
-  assign cin = (invertB ^ invertA) ? 1 : 0;
   wire less;
+  assign cin = (invertB ^ invertA) ? 1 : 0;
   assign less = (aluSrc1[31] && !aluSrc2[31]) || (!aluSrc1[31] && !aluSrc2[31] &&  (aluSrc1 < aluSrc2)) || (aluSrc1[31] && aluSrc2[31] &&  (aluSrc1 < aluSrc2));
   ALU_1bit alu0(
     result[0],
